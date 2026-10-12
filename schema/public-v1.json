@@ -1,0 +1,1076 @@
+{
+  "schema_version": "1.0.0",
+  "dataset": "SOURCE",
+  "null_semantics": "Indisponivel; nunca substituir por zero.",
+  "identifier_semantics": "Codigos sao texto; preservar zeros. Municipio usa codigo TSE.",
+  "marts": {
+    "mart_section_results": {
+      "columns": [
+        {
+          "name": "dataset",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "election_id",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "year",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "round",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "office",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "scope",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "uf",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "municipality",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "zone",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "section",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "section_id",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "candidate_id",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "candidate_number",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "candidate_name",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "candidate_identity",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "votes",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "eligible",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "attendance",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "abstentions",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "valid_votes",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "blank_votes",
+          "type": "HUGEINT",
+          "nullable": true
+        },
+        {
+          "name": "null_votes",
+          "type": "HUGEINT",
+          "nullable": true
+        },
+        {
+          "name": "abstention_pct",
+          "type": "DOUBLE",
+          "nullable": true
+        },
+        {
+          "name": "attendance_pct",
+          "type": "DOUBLE",
+          "nullable": true
+        },
+        {
+          "name": "blank_pct",
+          "type": "DOUBLE",
+          "nullable": true
+        },
+        {
+          "name": "null_pct",
+          "type": "DOUBLE",
+          "nullable": true
+        },
+        {
+          "name": "valid_vote_pct",
+          "type": "DOUBLE",
+          "nullable": true
+        },
+        {
+          "name": "eligible_vote_pct",
+          "type": "DOUBLE",
+          "nullable": true
+        },
+        {
+          "name": "vote_status",
+          "type": "VARCHAR",
+          "nullable": true
+        }
+      ]
+    },
+    "mart_section_historical_comparison": {
+      "columns": [
+        {
+          "name": "dataset",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "uf",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "municipality",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "round",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "office",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "candidate_identity",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "candidate_name",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "candidate_id_2022",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "candidate_id_2026",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "election_id_2022",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "election_id_2026",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "section_id_2022",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "section_id_2026",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "zone_2022",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "section_2022",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "zone_2026",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "section_2026",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "votes_2022",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "votes_2026",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "valid_vote_pct_2022",
+          "type": "DOUBLE",
+          "nullable": true
+        },
+        {
+          "name": "valid_vote_pct_2026",
+          "type": "DOUBLE",
+          "nullable": true
+        },
+        {
+          "name": "eligible_vote_pct_2022",
+          "type": "DOUBLE",
+          "nullable": true
+        },
+        {
+          "name": "eligible_vote_pct_2026",
+          "type": "DOUBLE",
+          "nullable": true
+        },
+        {
+          "name": "attendance_2022",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "attendance_2026",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "abstention_pct_2022",
+          "type": "DOUBLE",
+          "nullable": true
+        },
+        {
+          "name": "abstention_pct_2026",
+          "type": "DOUBLE",
+          "nullable": true
+        },
+        {
+          "name": "vote_status_2022",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "vote_status_2026",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "comparability_status",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "vote_difference",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "valid_vote_pp_change",
+          "type": "DOUBLE",
+          "nullable": true
+        },
+        {
+          "name": "eligible_vote_pp_change",
+          "type": "DOUBLE",
+          "nullable": true
+        },
+        {
+          "name": "descriptive_classification",
+          "type": "VARCHAR",
+          "nullable": true
+        }
+      ]
+    },
+    "mart_section_turnout": {
+      "columns": [
+        {
+          "name": "dataset",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "election_id",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "year",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "round",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "office",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "scope",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "uf",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "municipality",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "zone",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "section",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "section_id",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "eligible",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "attendance",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "abstentions",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "valid_votes",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "nominal_votes",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "party_votes",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "blank_votes",
+          "type": "HUGEINT",
+          "nullable": true
+        },
+        {
+          "name": "null_votes",
+          "type": "HUGEINT",
+          "nullable": true
+        },
+        {
+          "name": "separately_annulled_votes",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "valid_votes_source",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "abstention_pct",
+          "type": "DOUBLE",
+          "nullable": true
+        },
+        {
+          "name": "attendance_pct",
+          "type": "DOUBLE",
+          "nullable": true
+        },
+        {
+          "name": "blank_pct",
+          "type": "DOUBLE",
+          "nullable": true
+        },
+        {
+          "name": "null_pct",
+          "type": "DOUBLE",
+          "nullable": true
+        }
+      ]
+    },
+    "mart_zone_results": {
+      "columns": [
+        {
+          "name": "dataset",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "election_id",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "year",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "round",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "office",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "uf",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "municipality",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "zone",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "candidate_id",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "candidate_number",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "candidate_name",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "territorial_level",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "votes",
+          "type": "HUGEINT",
+          "nullable": true
+        },
+        {
+          "name": "candidate_sections",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "sections",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "eligible_sections",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "attendance_sections",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "valid_vote_sections",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "eligible",
+          "type": "HUGEINT",
+          "nullable": true
+        },
+        {
+          "name": "attendance",
+          "type": "HUGEINT",
+          "nullable": true
+        },
+        {
+          "name": "abstentions",
+          "type": "HUGEINT",
+          "nullable": true
+        },
+        {
+          "name": "valid_votes",
+          "type": "HUGEINT",
+          "nullable": true
+        },
+        {
+          "name": "blank_votes",
+          "type": "HUGEINT",
+          "nullable": true
+        },
+        {
+          "name": "null_votes",
+          "type": "HUGEINT",
+          "nullable": true
+        },
+        {
+          "name": "valid_vote_pct",
+          "type": "DOUBLE",
+          "nullable": true
+        },
+        {
+          "name": "eligible_vote_pct",
+          "type": "DOUBLE",
+          "nullable": true
+        },
+        {
+          "name": "attendance_pct",
+          "type": "DOUBLE",
+          "nullable": true
+        },
+        {
+          "name": "abstention_pct",
+          "type": "DOUBLE",
+          "nullable": true
+        },
+        {
+          "name": "blank_pct",
+          "type": "DOUBLE",
+          "nullable": true
+        },
+        {
+          "name": "null_pct",
+          "type": "DOUBLE",
+          "nullable": true
+        }
+      ]
+    },
+    "mart_municipality_results": {
+      "columns": [
+        {
+          "name": "dataset",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "election_id",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "year",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "round",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "office",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "uf",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "municipality",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "zone",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "candidate_id",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "candidate_number",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "candidate_name",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "territorial_level",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "votes",
+          "type": "HUGEINT",
+          "nullable": true
+        },
+        {
+          "name": "candidate_sections",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "sections",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "eligible_sections",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "attendance_sections",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "valid_vote_sections",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "eligible",
+          "type": "HUGEINT",
+          "nullable": true
+        },
+        {
+          "name": "attendance",
+          "type": "HUGEINT",
+          "nullable": true
+        },
+        {
+          "name": "abstentions",
+          "type": "HUGEINT",
+          "nullable": true
+        },
+        {
+          "name": "valid_votes",
+          "type": "HUGEINT",
+          "nullable": true
+        },
+        {
+          "name": "blank_votes",
+          "type": "HUGEINT",
+          "nullable": true
+        },
+        {
+          "name": "null_votes",
+          "type": "HUGEINT",
+          "nullable": true
+        },
+        {
+          "name": "valid_vote_pct",
+          "type": "DOUBLE",
+          "nullable": true
+        },
+        {
+          "name": "eligible_vote_pct",
+          "type": "DOUBLE",
+          "nullable": true
+        },
+        {
+          "name": "attendance_pct",
+          "type": "DOUBLE",
+          "nullable": true
+        },
+        {
+          "name": "abstention_pct",
+          "type": "DOUBLE",
+          "nullable": true
+        },
+        {
+          "name": "blank_pct",
+          "type": "DOUBLE",
+          "nullable": true
+        },
+        {
+          "name": "null_pct",
+          "type": "DOUBLE",
+          "nullable": true
+        }
+      ]
+    },
+    "mart_state_results": {
+      "columns": [
+        {
+          "name": "dataset",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "election_id",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "year",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "round",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "office",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "uf",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "municipality",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "zone",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "candidate_id",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "candidate_number",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "candidate_name",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "territorial_level",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "votes",
+          "type": "HUGEINT",
+          "nullable": true
+        },
+        {
+          "name": "candidate_sections",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "sections",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "eligible_sections",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "attendance_sections",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "valid_vote_sections",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "eligible",
+          "type": "HUGEINT",
+          "nullable": true
+        },
+        {
+          "name": "attendance",
+          "type": "HUGEINT",
+          "nullable": true
+        },
+        {
+          "name": "abstentions",
+          "type": "HUGEINT",
+          "nullable": true
+        },
+        {
+          "name": "valid_votes",
+          "type": "HUGEINT",
+          "nullable": true
+        },
+        {
+          "name": "blank_votes",
+          "type": "HUGEINT",
+          "nullable": true
+        },
+        {
+          "name": "null_votes",
+          "type": "HUGEINT",
+          "nullable": true
+        },
+        {
+          "name": "valid_vote_pct",
+          "type": "DOUBLE",
+          "nullable": true
+        },
+        {
+          "name": "eligible_vote_pct",
+          "type": "DOUBLE",
+          "nullable": true
+        },
+        {
+          "name": "attendance_pct",
+          "type": "DOUBLE",
+          "nullable": true
+        },
+        {
+          "name": "abstention_pct",
+          "type": "DOUBLE",
+          "nullable": true
+        },
+        {
+          "name": "blank_pct",
+          "type": "DOUBLE",
+          "nullable": true
+        },
+        {
+          "name": "null_pct",
+          "type": "DOUBLE",
+          "nullable": true
+        }
+      ]
+    },
+    "mart_national_results": {
+      "columns": [
+        {
+          "name": "dataset",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "election_id",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "year",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "round",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "office",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "uf",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "municipality",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "zone",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "candidate_id",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "candidate_number",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "candidate_name",
+          "type": "VARCHAR",
+          "nullable": true
+        },
+        {
+          "name": "territorial_level",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "votes",
+          "type": "HUGEINT",
+          "nullable": true
+        },
+        {
+          "name": "candidate_sections",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "sections",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "eligible_sections",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "attendance_sections",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "valid_vote_sections",
+          "type": "BIGINT",
+          "nullable": true
+        },
+        {
+          "name": "eligible",
+          "type": "HUGEINT",
+          "nullable": true
+        },
+        {
+          "name": "attendance",
+          "type": "HUGEINT",
+          "nullable": true
+        },
+        {
+          "name": "abstentions",
+          "type": "HUGEINT",
+          "nullable": true
+        },
+        {
+          "name": "valid_votes",
+          "type": "HUGEINT",
+          "nullable": true
+        },
+        {
+          "name": "blank_votes",
+          "type": "HUGEINT",
+          "nullable": true
+        },
+        {
+          "name": "null_votes",
+          "type": "HUGEINT",
+          "nullable": true
+        },
+        {
+          "name": "valid_vote_pct",
+          "type": "DOUBLE",
+          "nullable": true
+        },
+        {
+          "name": "eligible_vote_pct",
+          "type": "DOUBLE",
+          "nullable": true
+        },
+        {
+          "name": "attendance_pct",
+          "type": "DOUBLE",
+          "nullable": true
+        },
+        {
+          "name": "abstention_pct",
+          "type": "DOUBLE",
+          "nullable": true
+        },
+        {
+          "name": "blank_pct",
+          "type": "DOUBLE",
+          "nullable": true
+        },
+        {
+          "name": "null_pct",
+          "type": "DOUBLE",
+          "nullable": true
+        }
+      ]
+    }
+  }
+}

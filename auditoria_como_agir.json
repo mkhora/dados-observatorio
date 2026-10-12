@@ -1,0 +1,1860 @@
+{
+  "artefato": "C:\\Users\\MatheusTeixeiraDaHor\\Desktop\\prod\\obs-popular-eleitoral\\snapshots\\como_agir.parquet",
+  "gerado_em": "2026-10-11",
+  "recorte": {
+    "chave": [
+      "uf",
+      "municipality",
+      "zone",
+      "section"
+    ],
+    "chave_unica": "uma linha por section_id; 2917 repetições idênticas herdadas do E8 foram resolvidas na leitura",
+    "proposta_nacional_modal": "ministerio_seguranca",
+    "regua": "confirmação por indicador acima do quantil 0.65 (demanda alta) ou abaixo do quantil 0.35 (demanda baixa), na direção do indicador; peso forte >= 0.4",
+    "limiares": {
+      "pct_jovens": {
+        "rotulo": "% da população de 15 a 29 anos",
+        "lado": "alto",
+        "alto": 22.7865,
+        "baixo": 21.2192
+      },
+      "pct_idosos": {
+        "rotulo": "% da população com 60 anos ou mais",
+        "lado": "alto",
+        "alto": 17.6,
+        "baixo": 14.5019
+      },
+      "pct_criancas": {
+        "rotulo": "% da população de 0 a 14 anos",
+        "lado": "alto",
+        "alto": 20.2274,
+        "baixo": 18.0639
+      },
+      "renda_media": {
+        "rotulo": "renda média do responsável",
+        "lado": "baixo",
+        "alto": 3093.279,
+        "baixo": 2203.0633
+      },
+      "analfabetismo": {
+        "rotulo": "taxa de analfabetismo (15 anos ou mais)",
+        "lado": "alto",
+        "alto": 27.0851,
+        "baixo": 16.0699
+      },
+      "mortalidade_geral": {
+        "rotulo": "mortalidade geral por mil habitantes",
+        "lado": "alto",
+        "alto": 8.0894,
+        "baixo": 7.0104
+      },
+      "mortalidade_cancer": {
+        "rotulo": "mortalidade por câncer por 100 mil habitantes",
+        "lado": "alto",
+        "alto": 135.9588,
+        "baixo": 104.1938
+      },
+      "homicidios": {
+        "rotulo": "homicídios por 100 mil habitantes",
+        "lado": "alto",
+        "alto": 24.0839,
+        "baixo": 11.3316
+      },
+      "ubs_por_10k": {
+        "rotulo": "UBS por 10 mil habitantes",
+        "lado": "baixo",
+        "alto": 2.9024,
+        "baixo": 1.2405
+      }
+    },
+    "propostas": {
+      "fim_escala_6x1": {
+        "label": "Fim da escala 6x1 / jornada de 40h",
+        "checks": [
+          "pct_jovens",
+          "renda_media"
+        ]
+      },
+      "salario_minimo": {
+        "label": "Salário mínimo acima da inflação",
+        "checks": [
+          "renda_media"
+        ]
+      },
+      "cesta_basica": {
+        "label": "Cesta básica sem imposto",
+        "checks": [
+          "renda_media",
+          "pct_criancas"
+        ]
+      },
+      "pe_de_meia": {
+        "label": "Pé-de-Meia universal",
+        "checks": [
+          "analfabetismo",
+          "pct_jovens",
+          "renda_media"
+        ]
+      },
+      "tempo_integral": {
+        "label": "Ensino de tempo integral",
+        "checks": [
+          "analfabetismo",
+          "pct_criancas"
+        ]
+      },
+      "farmacia_popular": {
+        "label": "Farmácia Popular ampliada",
+        "checks": [
+          "pct_idosos",
+          "mortalidade_geral"
+        ]
+      },
+      "rede_cancer": {
+        "label": "Rede Brasil contra o Câncer",
+        "checks": [
+          "mortalidade_cancer"
+        ]
+      },
+      "teleconsultas": {
+        "label": "Teleconsultas no SUS",
+        "checks": [
+          "ubs_por_10k",
+          "mortalidade_geral"
+        ]
+      },
+      "ministerio_seguranca": {
+        "label": "Ministério da Segurança",
+        "checks": [
+          "homicidios"
+        ]
+      },
+      "feminicidio": {
+        "label": "Pacto Contra o Feminicídio",
+        "checks": [
+          "homicidios",
+          "pct_idosos"
+        ]
+      }
+    },
+    "proxies_declarados": {
+      "ideb_municipal": {
+        "indicador": "analfabetismo",
+        "nota": "INEP/IDEB não carregado; alfabetização do Censo como proxy"
+      },
+      "evasao_em": {
+        "indicador": "analfabetismo",
+        "nota": "INEP/evasão não carregada; alfabetização do Censo como proxy"
+      },
+      "pct_criancas_tempo_parcial": {
+        "indicador": "pct_criancas",
+        "nota": "Censo não distingue turno; 0 a 14 anos como proxy"
+      },
+      "pct_emprego_formal": {
+        "indicador": "renda_media",
+        "nota": "CAGED/RAIS não carregado; renda do responsável como proxy"
+      },
+      "pct_renda_ate_2sm": {
+        "indicador": "renda_media",
+        "nota": "faixa de renda não publicada; renda média como proxy"
+      },
+      "pct_inseguranca_alimentar": {
+        "indicador": "renda_media",
+        "nota": "sem fonte local; renda média como proxy"
+      },
+      "icsap": {
+        "indicador": "mortalidade_geral",
+        "nota": "SIH/ICSAP não carregado; mortalidade geral como proxy"
+      },
+      "densidade_medicos": {
+        "indicador": "ubs_por_10k",
+        "nota": "CNES conta UBS, não médicos; UBS por 10 mil como proxy"
+      },
+      "taxa_feminicidio": {
+        "indicador": "homicidios",
+        "nota": "SIM sem causa de feminicídio; homicídios como proxy (E8)"
+      },
+      "pct_mulheres_chefes": {
+        "indicador": "pct_idosos",
+        "nota": "Censo não agregado por sexo do responsável neste recorte"
+      }
+    },
+    "mensagem_max_indicadores": 2
+  },
+  "secoes_processadas": 508618,
+  "proposta": {
+    "confirmada": 374000,
+    "alternativa_confirmada": 20023,
+    "sem_confirmacao": 114595,
+    "fallback_uf": 0,
+    "confirmadas_com_dois_ou_mais": 147676,
+    "alteradas_em_relacao_ao_e8": 20023
+  },
+  "distribuicao_proposta": [
+    {
+      "proposta": "ministerio_seguranca",
+      "label": "Ministério da Segurança",
+      "secoes": 103170
+    },
+    {
+      "proposta": "rede_cancer",
+      "label": "Rede Brasil contra o Câncer",
+      "secoes": 98065
+    },
+    {
+      "proposta": "teleconsultas",
+      "label": "Teleconsultas no SUS",
+      "secoes": 82727
+    },
+    {
+      "proposta": "salario_minimo",
+      "label": "Salário mínimo acima da inflação",
+      "secoes": 62230
+    },
+    {
+      "proposta": "farmacia_popular",
+      "label": "Farmácia Popular ampliada",
+      "secoes": 57102
+    },
+    {
+      "proposta": "tempo_integral",
+      "label": "Ensino de tempo integral",
+      "secoes": 51664
+    },
+    {
+      "proposta": "fim_escala_6x1",
+      "label": "Fim da escala 6x1 / jornada de 40h",
+      "secoes": 36373
+    },
+    {
+      "proposta": "cesta_basica",
+      "label": "Cesta básica sem imposto",
+      "secoes": 6986
+    },
+    {
+      "proposta": "pe_de_meia",
+      "label": "Pé-de-Meia universal",
+      "secoes": 6830
+    },
+    {
+      "proposta": "feminicidio",
+      "label": "Pacto Contra o Feminicídio",
+      "secoes": 3471
+    }
+  ],
+  "distribuicao_proposta_uf": [
+    {
+      "uf": "AC",
+      "proposta": "tempo_integral",
+      "label": "Ensino de tempo integral",
+      "secoes": 2177
+    },
+    {
+      "uf": "AC",
+      "proposta": "ministerio_seguranca",
+      "label": "Ministério da Segurança",
+      "secoes": 138
+    },
+    {
+      "uf": "AL",
+      "proposta": "ministerio_seguranca",
+      "label": "Ministério da Segurança",
+      "secoes": 2673
+    },
+    {
+      "uf": "AL",
+      "proposta": "tempo_integral",
+      "label": "Ensino de tempo integral",
+      "secoes": 2484
+    },
+    {
+      "uf": "AL",
+      "proposta": "salario_minimo",
+      "label": "Salário mínimo acima da inflação",
+      "secoes": 1474
+    },
+    {
+      "uf": "AL",
+      "proposta": "fim_escala_6x1",
+      "label": "Fim da escala 6x1 / jornada de 40h",
+      "secoes": 308
+    },
+    {
+      "uf": "AL",
+      "proposta": "cesta_basica",
+      "label": "Cesta básica sem imposto",
+      "secoes": 174
+    },
+    {
+      "uf": "AL",
+      "proposta": "pe_de_meia",
+      "label": "Pé-de-Meia universal",
+      "secoes": 64
+    },
+    {
+      "uf": "AL",
+      "proposta": "rede_cancer",
+      "label": "Rede Brasil contra o Câncer",
+      "secoes": 23
+    },
+    {
+      "uf": "AM",
+      "proposta": "ministerio_seguranca",
+      "label": "Ministério da Segurança",
+      "secoes": 4541
+    },
+    {
+      "uf": "AM",
+      "proposta": "tempo_integral",
+      "label": "Ensino de tempo integral",
+      "secoes": 1963
+    },
+    {
+      "uf": "AM",
+      "proposta": "fim_escala_6x1",
+      "label": "Fim da escala 6x1 / jornada de 40h",
+      "secoes": 1513
+    },
+    {
+      "uf": "AM",
+      "proposta": "cesta_basica",
+      "label": "Cesta básica sem imposto",
+      "secoes": 246
+    },
+    {
+      "uf": "AP",
+      "proposta": "ministerio_seguranca",
+      "label": "Ministério da Segurança",
+      "secoes": 1733
+    },
+    {
+      "uf": "AP",
+      "proposta": "tempo_integral",
+      "label": "Ensino de tempo integral",
+      "secoes": 442
+    },
+    {
+      "uf": "AP",
+      "proposta": "fim_escala_6x1",
+      "label": "Fim da escala 6x1 / jornada de 40h",
+      "secoes": 163
+    },
+    {
+      "uf": "BA",
+      "proposta": "ministerio_seguranca",
+      "label": "Ministério da Segurança",
+      "secoes": 17720
+    },
+    {
+      "uf": "BA",
+      "proposta": "salario_minimo",
+      "label": "Salário mínimo acima da inflação",
+      "secoes": 14045
+    },
+    {
+      "uf": "BA",
+      "proposta": "tempo_integral",
+      "label": "Ensino de tempo integral",
+      "secoes": 1820
+    },
+    {
+      "uf": "BA",
+      "proposta": "pe_de_meia",
+      "label": "Pé-de-Meia universal",
+      "secoes": 871
+    },
+    {
+      "uf": "BA",
+      "proposta": "farmacia_popular",
+      "label": "Farmácia Popular ampliada",
+      "secoes": 634
+    },
+    {
+      "uf": "BA",
+      "proposta": "rede_cancer",
+      "label": "Rede Brasil contra o Câncer",
+      "secoes": 454
+    },
+    {
+      "uf": "BA",
+      "proposta": "cesta_basica",
+      "label": "Cesta básica sem imposto",
+      "secoes": 452
+    },
+    {
+      "uf": "BA",
+      "proposta": "fim_escala_6x1",
+      "label": "Fim da escala 6x1 / jornada de 40h",
+      "secoes": 310
+    },
+    {
+      "uf": "BA",
+      "proposta": "feminicidio",
+      "label": "Pacto Contra o Feminicídio",
+      "secoes": 19
+    },
+    {
+      "uf": "CE",
+      "proposta": "ministerio_seguranca",
+      "label": "Ministério da Segurança",
+      "secoes": 9988
+    },
+    {
+      "uf": "CE",
+      "proposta": "salario_minimo",
+      "label": "Salário mínimo acima da inflação",
+      "secoes": 8852
+    },
+    {
+      "uf": "CE",
+      "proposta": "fim_escala_6x1",
+      "label": "Fim da escala 6x1 / jornada de 40h",
+      "secoes": 3391
+    },
+    {
+      "uf": "CE",
+      "proposta": "tempo_integral",
+      "label": "Ensino de tempo integral",
+      "secoes": 690
+    },
+    {
+      "uf": "CE",
+      "proposta": "pe_de_meia",
+      "label": "Pé-de-Meia universal",
+      "secoes": 566
+    },
+    {
+      "uf": "CE",
+      "proposta": "rede_cancer",
+      "label": "Rede Brasil contra o Câncer",
+      "secoes": 308
+    },
+    {
+      "uf": "CE",
+      "proposta": "farmacia_popular",
+      "label": "Farmácia Popular ampliada",
+      "secoes": 227
+    },
+    {
+      "uf": "CE",
+      "proposta": "cesta_basica",
+      "label": "Cesta básica sem imposto",
+      "secoes": 131
+    },
+    {
+      "uf": "CE",
+      "proposta": "teleconsultas",
+      "label": "Teleconsultas no SUS",
+      "secoes": 100
+    },
+    {
+      "uf": "DF",
+      "proposta": "teleconsultas",
+      "label": "Teleconsultas no SUS",
+      "secoes": 7049
+    },
+    {
+      "uf": "ES",
+      "proposta": "ministerio_seguranca",
+      "label": "Ministério da Segurança",
+      "secoes": 4691
+    },
+    {
+      "uf": "ES",
+      "proposta": "feminicidio",
+      "label": "Pacto Contra o Feminicídio",
+      "secoes": 1271
+    },
+    {
+      "uf": "ES",
+      "proposta": "farmacia_popular",
+      "label": "Farmácia Popular ampliada",
+      "secoes": 1158
+    },
+    {
+      "uf": "ES",
+      "proposta": "rede_cancer",
+      "label": "Rede Brasil contra o Câncer",
+      "secoes": 1067
+    },
+    {
+      "uf": "ES",
+      "proposta": "salario_minimo",
+      "label": "Salário mínimo acima da inflação",
+      "secoes": 974
+    },
+    {
+      "uf": "ES",
+      "proposta": "tempo_integral",
+      "label": "Ensino de tempo integral",
+      "secoes": 420
+    },
+    {
+      "uf": "ES",
+      "proposta": "cesta_basica",
+      "label": "Cesta básica sem imposto",
+      "secoes": 228
+    },
+    {
+      "uf": "ES",
+      "proposta": "pe_de_meia",
+      "label": "Pé-de-Meia universal",
+      "secoes": 94
+    },
+    {
+      "uf": "GO",
+      "proposta": "tempo_integral",
+      "label": "Ensino de tempo integral",
+      "secoes": 3403
+    },
+    {
+      "uf": "GO",
+      "proposta": "ministerio_seguranca",
+      "label": "Ministério da Segurança",
+      "secoes": 3379
+    },
+    {
+      "uf": "GO",
+      "proposta": "teleconsultas",
+      "label": "Teleconsultas no SUS",
+      "secoes": 3068
+    },
+    {
+      "uf": "GO",
+      "proposta": "fim_escala_6x1",
+      "label": "Fim da escala 6x1 / jornada de 40h",
+      "secoes": 2422
+    },
+    {
+      "uf": "GO",
+      "proposta": "farmacia_popular",
+      "label": "Farmácia Popular ampliada",
+      "secoes": 2203
+    },
+    {
+      "uf": "GO",
+      "proposta": "rede_cancer",
+      "label": "Rede Brasil contra o Câncer",
+      "secoes": 809
+    },
+    {
+      "uf": "GO",
+      "proposta": "salario_minimo",
+      "label": "Salário mínimo acima da inflação",
+      "secoes": 357
+    },
+    {
+      "uf": "GO",
+      "proposta": "feminicidio",
+      "label": "Pacto Contra o Feminicídio",
+      "secoes": 255
+    },
+    {
+      "uf": "GO",
+      "proposta": "cesta_basica",
+      "label": "Cesta básica sem imposto",
+      "secoes": 23
+    },
+    {
+      "uf": "MA",
+      "proposta": "tempo_integral",
+      "label": "Ensino de tempo integral",
+      "secoes": 6551
+    },
+    {
+      "uf": "MA",
+      "proposta": "ministerio_seguranca",
+      "label": "Ministério da Segurança",
+      "secoes": 4861
+    },
+    {
+      "uf": "MA",
+      "proposta": "salario_minimo",
+      "label": "Salário mínimo acima da inflação",
+      "secoes": 4466
+    },
+    {
+      "uf": "MA",
+      "proposta": "cesta_basica",
+      "label": "Cesta básica sem imposto",
+      "secoes": 1458
+    },
+    {
+      "uf": "MA",
+      "proposta": "fim_escala_6x1",
+      "label": "Fim da escala 6x1 / jornada de 40h",
+      "secoes": 1299
+    },
+    {
+      "uf": "MA",
+      "proposta": "pe_de_meia",
+      "label": "Pé-de-Meia universal",
+      "secoes": 201
+    },
+    {
+      "uf": "MG",
+      "proposta": "rede_cancer",
+      "label": "Rede Brasil contra o Câncer",
+      "secoes": 16551
+    },
+    {
+      "uf": "MG",
+      "proposta": "farmacia_popular",
+      "label": "Farmácia Popular ampliada",
+      "secoes": 13597
+    },
+    {
+      "uf": "MG",
+      "proposta": "fim_escala_6x1",
+      "label": "Fim da escala 6x1 / jornada de 40h",
+      "secoes": 8301
+    },
+    {
+      "uf": "MG",
+      "proposta": "salario_minimo",
+      "label": "Salário mínimo acima da inflação",
+      "secoes": 5935
+    },
+    {
+      "uf": "MG",
+      "proposta": "tempo_integral",
+      "label": "Ensino de tempo integral",
+      "secoes": 2404
+    },
+    {
+      "uf": "MG",
+      "proposta": "ministerio_seguranca",
+      "label": "Ministério da Segurança",
+      "secoes": 2308
+    },
+    {
+      "uf": "MG",
+      "proposta": "pe_de_meia",
+      "label": "Pé-de-Meia universal",
+      "secoes": 1460
+    },
+    {
+      "uf": "MG",
+      "proposta": "feminicidio",
+      "label": "Pacto Contra o Feminicídio",
+      "secoes": 1302
+    },
+    {
+      "uf": "MG",
+      "proposta": "cesta_basica",
+      "label": "Cesta básica sem imposto",
+      "secoes": 793
+    },
+    {
+      "uf": "MG",
+      "proposta": "teleconsultas",
+      "label": "Teleconsultas no SUS",
+      "secoes": 105
+    },
+    {
+      "uf": "MS",
+      "proposta": "tempo_integral",
+      "label": "Ensino de tempo integral",
+      "secoes": 2705
+    },
+    {
+      "uf": "MS",
+      "proposta": "teleconsultas",
+      "label": "Teleconsultas no SUS",
+      "secoes": 2219
+    },
+    {
+      "uf": "MS",
+      "proposta": "ministerio_seguranca",
+      "label": "Ministério da Segurança",
+      "secoes": 683
+    },
+    {
+      "uf": "MS",
+      "proposta": "rede_cancer",
+      "label": "Rede Brasil contra o Câncer",
+      "secoes": 595
+    },
+    {
+      "uf": "MS",
+      "proposta": "cesta_basica",
+      "label": "Cesta básica sem imposto",
+      "secoes": 479
+    },
+    {
+      "uf": "MS",
+      "proposta": "farmacia_popular",
+      "label": "Farmácia Popular ampliada",
+      "secoes": 430
+    },
+    {
+      "uf": "MS",
+      "proposta": "fim_escala_6x1",
+      "label": "Fim da escala 6x1 / jornada de 40h",
+      "secoes": 79
+    },
+    {
+      "uf": "MS",
+      "proposta": "salario_minimo",
+      "label": "Salário mínimo acima da inflação",
+      "secoes": 20
+    },
+    {
+      "uf": "MT",
+      "proposta": "tempo_integral",
+      "label": "Ensino de tempo integral",
+      "secoes": 5308
+    },
+    {
+      "uf": "MT",
+      "proposta": "ministerio_seguranca",
+      "label": "Ministério da Segurança",
+      "secoes": 2437
+    },
+    {
+      "uf": "MT",
+      "proposta": "farmacia_popular",
+      "label": "Farmácia Popular ampliada",
+      "secoes": 196
+    },
+    {
+      "uf": "MT",
+      "proposta": "rede_cancer",
+      "label": "Rede Brasil contra o Câncer",
+      "secoes": 191
+    },
+    {
+      "uf": "MT",
+      "proposta": "fim_escala_6x1",
+      "label": "Fim da escala 6x1 / jornada de 40h",
+      "secoes": 163
+    },
+    {
+      "uf": "MT",
+      "proposta": "cesta_basica",
+      "label": "Cesta básica sem imposto",
+      "secoes": 136
+    },
+    {
+      "uf": "MT",
+      "proposta": "salario_minimo",
+      "label": "Salário mínimo acima da inflação",
+      "secoes": 96
+    },
+    {
+      "uf": "MT",
+      "proposta": "feminicidio",
+      "label": "Pacto Contra o Feminicídio",
+      "secoes": 9
+    },
+    {
+      "uf": "PA",
+      "proposta": "ministerio_seguranca",
+      "label": "Ministério da Segurança",
+      "secoes": 9222
+    },
+    {
+      "uf": "PA",
+      "proposta": "fim_escala_6x1",
+      "label": "Fim da escala 6x1 / jornada de 40h",
+      "secoes": 5696
+    },
+    {
+      "uf": "PA",
+      "proposta": "tempo_integral",
+      "label": "Ensino de tempo integral",
+      "secoes": 4072
+    },
+    {
+      "uf": "PA",
+      "proposta": "salario_minimo",
+      "label": "Salário mínimo acima da inflação",
+      "secoes": 1797
+    },
+    {
+      "uf": "PA",
+      "proposta": "cesta_basica",
+      "label": "Cesta básica sem imposto",
+      "secoes": 591
+    },
+    {
+      "uf": "PA",
+      "proposta": "pe_de_meia",
+      "label": "Pé-de-Meia universal",
+      "secoes": 92
+    },
+    {
+      "uf": "PB",
+      "proposta": "salario_minimo",
+      "label": "Salário mínimo acima da inflação",
+      "secoes": 4601
+    },
+    {
+      "uf": "PB",
+      "proposta": "ministerio_seguranca",
+      "label": "Ministério da Segurança",
+      "secoes": 3814
+    },
+    {
+      "uf": "PB",
+      "proposta": "fim_escala_6x1",
+      "label": "Fim da escala 6x1 / jornada de 40h",
+      "secoes": 959
+    },
+    {
+      "uf": "PB",
+      "proposta": "tempo_integral",
+      "label": "Ensino de tempo integral",
+      "secoes": 696
+    },
+    {
+      "uf": "PB",
+      "proposta": "rede_cancer",
+      "label": "Rede Brasil contra o Câncer",
+      "secoes": 419
+    },
+    {
+      "uf": "PB",
+      "proposta": "farmacia_popular",
+      "label": "Farmácia Popular ampliada",
+      "secoes": 155
+    },
+    {
+      "uf": "PB",
+      "proposta": "cesta_basica",
+      "label": "Cesta básica sem imposto",
+      "secoes": 77
+    },
+    {
+      "uf": "PB",
+      "proposta": "pe_de_meia",
+      "label": "Pé-de-Meia universal",
+      "secoes": 16
+    },
+    {
+      "uf": "PE",
+      "proposta": "ministerio_seguranca",
+      "label": "Ministério da Segurança",
+      "secoes": 10663
+    },
+    {
+      "uf": "PE",
+      "proposta": "salario_minimo",
+      "label": "Salário mínimo acima da inflação",
+      "secoes": 7122
+    },
+    {
+      "uf": "PE",
+      "proposta": "tempo_integral",
+      "label": "Ensino de tempo integral",
+      "secoes": 1904
+    },
+    {
+      "uf": "PE",
+      "proposta": "fim_escala_6x1",
+      "label": "Fim da escala 6x1 / jornada de 40h",
+      "secoes": 1202
+    },
+    {
+      "uf": "PE",
+      "proposta": "pe_de_meia",
+      "label": "Pé-de-Meia universal",
+      "secoes": 278
+    },
+    {
+      "uf": "PE",
+      "proposta": "cesta_basica",
+      "label": "Cesta básica sem imposto",
+      "secoes": 229
+    },
+    {
+      "uf": "PE",
+      "proposta": "farmacia_popular",
+      "label": "Farmácia Popular ampliada",
+      "secoes": 76
+    },
+    {
+      "uf": "PE",
+      "proposta": "rede_cancer",
+      "label": "Rede Brasil contra o Câncer",
+      "secoes": 61
+    },
+    {
+      "uf": "PE",
+      "proposta": "teleconsultas",
+      "label": "Teleconsultas no SUS",
+      "secoes": 51
+    },
+    {
+      "uf": "PI",
+      "proposta": "salario_minimo",
+      "label": "Salário mínimo acima da inflação",
+      "secoes": 5388
+    },
+    {
+      "uf": "PI",
+      "proposta": "ministerio_seguranca",
+      "label": "Ministério da Segurança",
+      "secoes": 2792
+    },
+    {
+      "uf": "PI",
+      "proposta": "fim_escala_6x1",
+      "label": "Fim da escala 6x1 / jornada de 40h",
+      "secoes": 660
+    },
+    {
+      "uf": "PI",
+      "proposta": "pe_de_meia",
+      "label": "Pé-de-Meia universal",
+      "secoes": 506
+    },
+    {
+      "uf": "PI",
+      "proposta": "tempo_integral",
+      "label": "Ensino de tempo integral",
+      "secoes": 479
+    },
+    {
+      "uf": "PI",
+      "proposta": "farmacia_popular",
+      "label": "Farmácia Popular ampliada",
+      "secoes": 253
+    },
+    {
+      "uf": "PI",
+      "proposta": "rede_cancer",
+      "label": "Rede Brasil contra o Câncer",
+      "secoes": 173
+    },
+    {
+      "uf": "PI",
+      "proposta": "cesta_basica",
+      "label": "Cesta básica sem imposto",
+      "secoes": 153
+    },
+    {
+      "uf": "PR",
+      "proposta": "rede_cancer",
+      "label": "Rede Brasil contra o Câncer",
+      "secoes": 14420
+    },
+    {
+      "uf": "PR",
+      "proposta": "ministerio_seguranca",
+      "label": "Ministério da Segurança",
+      "secoes": 4581
+    },
+    {
+      "uf": "PR",
+      "proposta": "farmacia_popular",
+      "label": "Farmácia Popular ampliada",
+      "secoes": 3498
+    },
+    {
+      "uf": "PR",
+      "proposta": "fim_escala_6x1",
+      "label": "Fim da escala 6x1 / jornada de 40h",
+      "secoes": 2294
+    },
+    {
+      "uf": "PR",
+      "proposta": "tempo_integral",
+      "label": "Ensino de tempo integral",
+      "secoes": 1172
+    },
+    {
+      "uf": "PR",
+      "proposta": "cesta_basica",
+      "label": "Cesta básica sem imposto",
+      "secoes": 743
+    },
+    {
+      "uf": "PR",
+      "proposta": "teleconsultas",
+      "label": "Teleconsultas no SUS",
+      "secoes": 278
+    },
+    {
+      "uf": "PR",
+      "proposta": "salario_minimo",
+      "label": "Salário mínimo acima da inflação",
+      "secoes": 262
+    },
+    {
+      "uf": "PR",
+      "proposta": "feminicidio",
+      "label": "Pacto Contra o Feminicídio",
+      "secoes": 235
+    },
+    {
+      "uf": "RJ",
+      "proposta": "teleconsultas",
+      "label": "Teleconsultas no SUS",
+      "secoes": 18120
+    },
+    {
+      "uf": "RJ",
+      "proposta": "farmacia_popular",
+      "label": "Farmácia Popular ampliada",
+      "secoes": 10144
+    },
+    {
+      "uf": "RJ",
+      "proposta": "rede_cancer",
+      "label": "Rede Brasil contra o Câncer",
+      "secoes": 3475
+    },
+    {
+      "uf": "RJ",
+      "proposta": "ministerio_seguranca",
+      "label": "Ministério da Segurança",
+      "secoes": 3418
+    },
+    {
+      "uf": "RJ",
+      "proposta": "salario_minimo",
+      "label": "Salário mínimo acima da inflação",
+      "secoes": 2180
+    },
+    {
+      "uf": "RJ",
+      "proposta": "tempo_integral",
+      "label": "Ensino de tempo integral",
+      "secoes": 490
+    },
+    {
+      "uf": "RJ",
+      "proposta": "pe_de_meia",
+      "label": "Pé-de-Meia universal",
+      "secoes": 28
+    },
+    {
+      "uf": "RN",
+      "proposta": "ministerio_seguranca",
+      "label": "Ministério da Segurança",
+      "secoes": 4277
+    },
+    {
+      "uf": "RN",
+      "proposta": "salario_minimo",
+      "label": "Salário mínimo acima da inflação",
+      "secoes": 1616
+    },
+    {
+      "uf": "RN",
+      "proposta": "tempo_integral",
+      "label": "Ensino de tempo integral",
+      "secoes": 862
+    },
+    {
+      "uf": "RN",
+      "proposta": "fim_escala_6x1",
+      "label": "Fim da escala 6x1 / jornada de 40h",
+      "secoes": 487
+    },
+    {
+      "uf": "RN",
+      "proposta": "rede_cancer",
+      "label": "Rede Brasil contra o Câncer",
+      "secoes": 440
+    },
+    {
+      "uf": "RN",
+      "proposta": "pe_de_meia",
+      "label": "Pé-de-Meia universal",
+      "secoes": 290
+    },
+    {
+      "uf": "RN",
+      "proposta": "farmacia_popular",
+      "label": "Farmácia Popular ampliada",
+      "secoes": 224
+    },
+    {
+      "uf": "RN",
+      "proposta": "cesta_basica",
+      "label": "Cesta básica sem imposto",
+      "secoes": 28
+    },
+    {
+      "uf": "RO",
+      "proposta": "ministerio_seguranca",
+      "label": "Ministério da Segurança",
+      "secoes": 3507
+    },
+    {
+      "uf": "RO",
+      "proposta": "tempo_integral",
+      "label": "Ensino de tempo integral",
+      "secoes": 578
+    },
+    {
+      "uf": "RO",
+      "proposta": "fim_escala_6x1",
+      "label": "Fim da escala 6x1 / jornada de 40h",
+      "secoes": 415
+    },
+    {
+      "uf": "RO",
+      "proposta": "rede_cancer",
+      "label": "Rede Brasil contra o Câncer",
+      "secoes": 122
+    },
+    {
+      "uf": "RO",
+      "proposta": "farmacia_popular",
+      "label": "Farmácia Popular ampliada",
+      "secoes": 115
+    },
+    {
+      "uf": "RO",
+      "proposta": "cesta_basica",
+      "label": "Cesta básica sem imposto",
+      "secoes": 26
+    },
+    {
+      "uf": "RO",
+      "proposta": "feminicidio",
+      "label": "Pacto Contra o Feminicídio",
+      "secoes": 24
+    },
+    {
+      "uf": "RR",
+      "proposta": "tempo_integral",
+      "label": "Ensino de tempo integral",
+      "secoes": 1436
+    },
+    {
+      "uf": "RR",
+      "proposta": "ministerio_seguranca",
+      "label": "Ministério da Segurança",
+      "secoes": 112
+    },
+    {
+      "uf": "RR",
+      "proposta": "cesta_basica",
+      "label": "Cesta básica sem imposto",
+      "secoes": 57
+    },
+    {
+      "uf": "RS",
+      "proposta": "rede_cancer",
+      "label": "Rede Brasil contra o Câncer",
+      "secoes": 21473
+    },
+    {
+      "uf": "RS",
+      "proposta": "farmacia_popular",
+      "label": "Farmácia Popular ampliada",
+      "secoes": 4837
+    },
+    {
+      "uf": "RS",
+      "proposta": "ministerio_seguranca",
+      "label": "Ministério da Segurança",
+      "secoes": 674
+    },
+    {
+      "uf": "RS",
+      "proposta": "teleconsultas",
+      "label": "Teleconsultas no SUS",
+      "secoes": 339
+    },
+    {
+      "uf": "RS",
+      "proposta": "salario_minimo",
+      "label": "Salário mínimo acima da inflação",
+      "secoes": 216
+    },
+    {
+      "uf": "RS",
+      "proposta": "feminicidio",
+      "label": "Pacto Contra o Feminicídio",
+      "secoes": 175
+    },
+    {
+      "uf": "RS",
+      "proposta": "cesta_basica",
+      "label": "Cesta básica sem imposto",
+      "secoes": 37
+    },
+    {
+      "uf": "RS",
+      "proposta": "fim_escala_6x1",
+      "label": "Fim da escala 6x1 / jornada de 40h",
+      "secoes": 25
+    },
+    {
+      "uf": "RS",
+      "proposta": "tempo_integral",
+      "label": "Ensino de tempo integral",
+      "secoes": 17
+    },
+    {
+      "uf": "SC",
+      "proposta": "rede_cancer",
+      "label": "Rede Brasil contra o Câncer",
+      "secoes": 10715
+    },
+    {
+      "uf": "SC",
+      "proposta": "fim_escala_6x1",
+      "label": "Fim da escala 6x1 / jornada de 40h",
+      "secoes": 3520
+    },
+    {
+      "uf": "SC",
+      "proposta": "farmacia_popular",
+      "label": "Farmácia Popular ampliada",
+      "secoes": 2046
+    },
+    {
+      "uf": "SC",
+      "proposta": "tempo_integral",
+      "label": "Ensino de tempo integral",
+      "secoes": 747
+    },
+    {
+      "uf": "SC",
+      "proposta": "ministerio_seguranca",
+      "label": "Ministério da Segurança",
+      "secoes": 275
+    },
+    {
+      "uf": "SC",
+      "proposta": "teleconsultas",
+      "label": "Teleconsultas no SUS",
+      "secoes": 147
+    },
+    {
+      "uf": "SC",
+      "proposta": "cesta_basica",
+      "label": "Cesta básica sem imposto",
+      "secoes": 146
+    },
+    {
+      "uf": "SC",
+      "proposta": "feminicidio",
+      "label": "Pacto Contra o Feminicídio",
+      "secoes": 130
+    },
+    {
+      "uf": "SC",
+      "proposta": "salario_minimo",
+      "label": "Salário mínimo acima da inflação",
+      "secoes": 13
+    },
+    {
+      "uf": "SE",
+      "proposta": "ministerio_seguranca",
+      "label": "Ministério da Segurança",
+      "secoes": 2814
+    },
+    {
+      "uf": "SE",
+      "proposta": "salario_minimo",
+      "label": "Salário mínimo acima da inflação",
+      "secoes": 1466
+    },
+    {
+      "uf": "SE",
+      "proposta": "tempo_integral",
+      "label": "Ensino de tempo integral",
+      "secoes": 889
+    },
+    {
+      "uf": "SE",
+      "proposta": "pe_de_meia",
+      "label": "Pé-de-Meia universal",
+      "secoes": 735
+    },
+    {
+      "uf": "SE",
+      "proposta": "cesta_basica",
+      "label": "Cesta básica sem imposto",
+      "secoes": 80
+    },
+    {
+      "uf": "SP",
+      "proposta": "teleconsultas",
+      "label": "Teleconsultas no SUS",
+      "secoes": 51251
+    },
+    {
+      "uf": "SP",
+      "proposta": "rede_cancer",
+      "label": "Rede Brasil contra o Câncer",
+      "secoes": 26677
+    },
+    {
+      "uf": "SP",
+      "proposta": "farmacia_popular",
+      "label": "Farmácia Popular ampliada",
+      "secoes": 17230
+    },
+    {
+      "uf": "SP",
+      "proposta": "tempo_integral",
+      "label": "Ensino de tempo integral",
+      "secoes": 5759
+    },
+    {
+      "uf": "SP",
+      "proposta": "fim_escala_6x1",
+      "label": "Fim da escala 6x1 / jornada de 40h",
+      "secoes": 2924
+    },
+    {
+      "uf": "SP",
+      "proposta": "pe_de_meia",
+      "label": "Pé-de-Meia universal",
+      "secoes": 1611
+    },
+    {
+      "uf": "SP",
+      "proposta": "salario_minimo",
+      "label": "Salário mínimo acima da inflação",
+      "secoes": 1218
+    },
+    {
+      "uf": "SP",
+      "proposta": "ministerio_seguranca",
+      "label": "Ministério da Segurança",
+      "secoes": 527
+    },
+    {
+      "uf": "SP",
+      "proposta": "cesta_basica",
+      "label": "Cesta básica sem imposto",
+      "secoes": 405
+    },
+    {
+      "uf": "SP",
+      "proposta": "feminicidio",
+      "label": "Pacto Contra o Feminicídio",
+      "secoes": 51
+    },
+    {
+      "uf": "TO",
+      "proposta": "tempo_integral",
+      "label": "Ensino de tempo integral",
+      "secoes": 2196
+    },
+    {
+      "uf": "TO",
+      "proposta": "ministerio_seguranca",
+      "label": "Ministério da Segurança",
+      "secoes": 1342
+    },
+    {
+      "uf": "TO",
+      "proposta": "cesta_basica",
+      "label": "Cesta básica sem imposto",
+      "secoes": 294
+    },
+    {
+      "uf": "TO",
+      "proposta": "fim_escala_6x1",
+      "label": "Fim da escala 6x1 / jornada de 40h",
+      "secoes": 242
+    },
+    {
+      "uf": "TO",
+      "proposta": "salario_minimo",
+      "label": "Salário mínimo acima da inflação",
+      "secoes": 132
+    },
+    {
+      "uf": "TO",
+      "proposta": "rede_cancer",
+      "label": "Rede Brasil contra o Câncer",
+      "secoes": 92
+    },
+    {
+      "uf": "TO",
+      "proposta": "farmacia_popular",
+      "label": "Farmácia Popular ampliada",
+      "secoes": 79
+    },
+    {
+      "uf": "TO",
+      "proposta": "pe_de_meia",
+      "label": "Pé-de-Meia universal",
+      "secoes": 18
+    }
+  ],
+  "distribuicao_acoes_por_diagnostico": [
+    {
+      "diagnostico": "conversão",
+      "acao": "Caminhada de rua e lideranças locais",
+      "secoes": 2482
+    },
+    {
+      "diagnostico": "conversão",
+      "acao": "Panfletagem em feiras e terminais",
+      "secoes": 2111
+    },
+    {
+      "diagnostico": "conversão",
+      "acao": "Roda de saúde e agentes comunitários",
+      "secoes": 1971
+    },
+    {
+      "diagnostico": "conversão",
+      "acao": "Porta a porta com jovens trabalhadores",
+      "secoes": 1247
+    },
+    {
+      "diagnostico": "conversão",
+      "acao": "Reunião com famílias e lideranças",
+      "secoes": 945
+    },
+    {
+      "diagnostico": "conversão",
+      "acao": "Mutirão em UBS e filas de farmácia",
+      "secoes": 801
+    },
+    {
+      "diagnostico": "conversão",
+      "acao": "Porta a porta com apoio de ACS",
+      "secoes": 222
+    },
+    {
+      "diagnostico": "conversão",
+      "acao": "Roda com estudantes e portas de escola",
+      "secoes": 183
+    },
+    {
+      "diagnostico": "conversão",
+      "acao": "Mutirão em bairros periféricos",
+      "secoes": 172
+    },
+    {
+      "diagnostico": "conversão",
+      "acao": "Roda com mulheres e coletivos",
+      "secoes": 76
+    },
+    {
+      "diagnostico": "manutenção",
+      "acao": "Caminhada de rua e lideranças locais",
+      "secoes": 12658
+    },
+    {
+      "diagnostico": "manutenção",
+      "acao": "Porta a porta com apoio de ACS",
+      "secoes": 9346
+    },
+    {
+      "diagnostico": "manutenção",
+      "acao": "Reunião com famílias e lideranças",
+      "secoes": 7177
+    },
+    {
+      "diagnostico": "manutenção",
+      "acao": "Panfletagem em feiras e terminais",
+      "secoes": 6496
+    },
+    {
+      "diagnostico": "manutenção",
+      "acao": "Roda de saúde e agentes comunitários",
+      "secoes": 6170
+    },
+    {
+      "diagnostico": "manutenção",
+      "acao": "Porta a porta com jovens trabalhadores",
+      "secoes": 4597
+    },
+    {
+      "diagnostico": "manutenção",
+      "acao": "Mutirão em UBS e filas de farmácia",
+      "secoes": 4191
+    },
+    {
+      "diagnostico": "manutenção",
+      "acao": "Mutirão em bairros periféricos",
+      "secoes": 815
+    },
+    {
+      "diagnostico": "manutenção",
+      "acao": "Roda com estudantes e portas de escola",
+      "secoes": 599
+    },
+    {
+      "diagnostico": "manutenção",
+      "acao": "Roda com mulheres e coletivos",
+      "secoes": 236
+    },
+    {
+      "diagnostico": "mobilização",
+      "acao": "Roda de saúde e agentes comunitários",
+      "secoes": 74695
+    },
+    {
+      "diagnostico": "mobilização",
+      "acao": "Caminhada de rua e lideranças locais",
+      "secoes": 64011
+    },
+    {
+      "diagnostico": "mobilização",
+      "acao": "Porta a porta com apoio de ACS",
+      "secoes": 45494
+    },
+    {
+      "diagnostico": "mobilização",
+      "acao": "Panfletagem em feiras e terminais",
+      "secoes": 45436
+    },
+    {
+      "diagnostico": "mobilização",
+      "acao": "Mutirão em UBS e filas de farmácia",
+      "secoes": 43756
+    },
+    {
+      "diagnostico": "mobilização",
+      "acao": "Reunião com famílias e lideranças",
+      "secoes": 37994
+    },
+    {
+      "diagnostico": "mobilização",
+      "acao": "Porta a porta com jovens trabalhadores",
+      "secoes": 26506
+    },
+    {
+      "diagnostico": "mobilização",
+      "acao": "Mutirão em bairros periféricos",
+      "secoes": 5319
+    },
+    {
+      "diagnostico": "mobilização",
+      "acao": "Roda com estudantes e portas de escola",
+      "secoes": 5183
+    },
+    {
+      "diagnostico": "mobilização",
+      "acao": "Roda com mulheres e coletivos",
+      "secoes": 2602
+    },
+    {
+      "diagnostico": "preventiva",
+      "acao": "Porta a porta com apoio de ACS",
+      "secoes": 27665
+    },
+    {
+      "diagnostico": "preventiva",
+      "acao": "Caminhada de rua e lideranças locais",
+      "secoes": 24019
+    },
+    {
+      "diagnostico": "preventiva",
+      "acao": "Roda de saúde e agentes comunitários",
+      "secoes": 15229
+    },
+    {
+      "diagnostico": "preventiva",
+      "acao": "Mutirão em UBS e filas de farmácia",
+      "secoes": 8354
+    },
+    {
+      "diagnostico": "preventiva",
+      "acao": "Panfletagem em feiras e terminais",
+      "secoes": 8187
+    },
+    {
+      "diagnostico": "preventiva",
+      "acao": "Reunião com famílias e lideranças",
+      "secoes": 5548
+    },
+    {
+      "diagnostico": "preventiva",
+      "acao": "Porta a porta com jovens trabalhadores",
+      "secoes": 4023
+    },
+    {
+      "diagnostico": "preventiva",
+      "acao": "Roda com estudantes e portas de escola",
+      "secoes": 865
+    },
+    {
+      "diagnostico": "preventiva",
+      "acao": "Mutirão em bairros periféricos",
+      "secoes": 680
+    },
+    {
+      "diagnostico": "preventiva",
+      "acao": "Roda com mulheres e coletivos",
+      "secoes": 557
+    }
+  ],
+  "cruzamento_guia": {
+    "guia_secoes": 41138,
+    "guia_igual_demanda": 41138,
+    "guia_proposta_alterada": 971,
+    "guia_proposta_confirmada": 36887,
+    "guia_sem_confirmacao": 3280
+  },
+  "top_20": [
+    {
+      "uf": "AM",
+      "municipio": "HUMAITÁ",
+      "zona": "17",
+      "secao": "18",
+      "proposta": "tempo_integral",
+      "label": "Ensino de tempo integral",
+      "motivo_proposta": "confirmada",
+      "indicadores_confirmadores": 2,
+      "diagnostico": "mobilização",
+      "gap_p1": 117.2874251497006,
+      "mensagem_pronta": "O Lula vai implementar o ensino de tempo integral em todas as escolas públicas. Aqui, a taxa de analfabetismo é de 42,3% e 28,1% da população tem até 14 anos. Isso significa mais aprendizado e mais oportunidades para as crianças."
+    },
+    {
+      "uf": "RS",
+      "municipio": "BARROS CASSAL",
+      "zona": "54",
+      "secao": "214",
+      "proposta": "ministerio_seguranca",
+      "label": "Ministério da Segurança",
+      "motivo_proposta": "confirmada",
+      "indicadores_confirmadores": 1,
+      "diagnostico": "mobilização",
+      "gap_p1": 107.20945945945945,
+      "mensagem_pronta": "O Lula vai criar o Ministério da Segurança Pública e retomar territórios dominados pelo crime. Aqui, a taxa de homicídios é de 64,5 por 100 mil habitantes. Isso é proteção para quem trabalha e prisão para quem rouba."
+    },
+    {
+      "uf": "PR",
+      "municipio": "IMBAÚ",
+      "zona": "111",
+      "secao": "276",
+      "proposta": "fim_escala_6x1",
+      "label": "Fim da escala 6x1 / jornada de 40h",
+      "motivo_proposta": "confirmada",
+      "indicadores_confirmadores": 2,
+      "diagnostico": "mobilização",
+      "gap_p1": 98.83333333333334,
+      "mensagem_pronta": "O Lula vai acabar com a escala 6x1 e reduzir a jornada para 40 horas sem cortar salário. Aqui, 24,2% da população tem entre 15 e 29 anos e a renda média do responsável é de R$ 2.093. Isso é mais tempo com a família, sem perder renda."
+    },
+    {
+      "uf": "RS",
+      "municipio": "LAGOÃO",
+      "zona": "53",
+      "secao": "173",
+      "proposta": "ministerio_seguranca",
+      "label": "Ministério da Segurança",
+      "motivo_proposta": "confirmada",
+      "indicadores_confirmadores": 1,
+      "diagnostico": "mobilização",
+      "gap_p1": 90.36917562724014,
+      "mensagem_pronta": "O Lula vai criar o Ministério da Segurança Pública e retomar territórios dominados pelo crime. Aqui, a taxa de homicídios é de 56,2 por 100 mil habitantes. Isso é proteção para quem trabalha e prisão para quem rouba."
+    },
+    {
+      "uf": "RS",
+      "municipio": "CAMARGO",
+      "zona": "62",
+      "secao": "190",
+      "proposta": "rede_cancer",
+      "label": "Rede Brasil contra o Câncer",
+      "motivo_proposta": "confirmada",
+      "indicadores_confirmadores": 1,
+      "diagnostico": "mobilização",
+      "gap_p1": 87.9493670886076,
+      "mensagem_pronta": "O Lula vai criar a Rede Brasil contra o Câncer, a maior rede pública do mundo para tratamento da doença. Aqui, a mortalidade por câncer é de 201,3 por 100 mil habitantes. Isso é atendimento perto de casa."
+    },
+    {
+      "uf": "MA",
+      "municipio": "CENTRO NOVO DO MARANHÃO",
+      "zona": "100",
+      "secao": "28",
+      "proposta": "fim_escala_6x1",
+      "label": "Fim da escala 6x1 / jornada de 40h",
+      "motivo_proposta": "confirmada",
+      "indicadores_confirmadores": 2,
+      "diagnostico": "mobilização",
+      "gap_p1": 84.93449781659388,
+      "mensagem_pronta": "O Lula vai acabar com a escala 6x1 e reduzir a jornada para 40 horas sem cortar salário. Aqui, 27,9% da população tem entre 15 e 29 anos e a renda média do responsável é de R$ 1.229. Isso é mais tempo com a família, sem perder renda."
+    },
+    {
+      "uf": "SC",
+      "municipio": "IRINEÓPOLIS",
+      "zona": "25",
+      "secao": "148",
+      "proposta": "ministerio_seguranca",
+      "label": "Ministério da Segurança",
+      "motivo_proposta": "confirmada",
+      "indicadores_confirmadores": 1,
+      "diagnostico": "mobilização",
+      "gap_p1": 83.50000000000003,
+      "mensagem_pronta": "O Lula vai criar o Ministério da Segurança Pública e retomar territórios dominados pelo crime. Aqui, a taxa de homicídios é de 29,2 por 100 mil habitantes. Isso é proteção para quem trabalha e prisão para quem rouba."
+    },
+    {
+      "uf": "MG",
+      "municipio": "PERDÕES",
+      "zona": "216",
+      "secao": "61",
+      "proposta": "farmacia_popular",
+      "label": "Farmácia Popular ampliada",
+      "motivo_proposta": "confirmada",
+      "indicadores_confirmadores": 2,
+      "diagnostico": "mobilização",
+      "gap_p1": 82.89000000000001,
+      "mensagem_pronta": "O Lula vai ampliar o Farmácia Popular e criar a Rede Brasil contra o Câncer. Aqui, 20,5% da população tem 60 anos ou mais e a mortalidade geral é de 8,6 por mil habitantes. Isso é remédio mais barato e atendimento perto de casa."
+    },
+    {
+      "uf": "BA",
+      "municipio": "VITÓRIA DA CONQUISTA",
+      "zona": "41",
+      "secao": "310",
+      "proposta": "pe_de_meia",
+      "label": "Pé-de-Meia universal",
+      "motivo_proposta": "alternativa_confirmada",
+      "indicadores_confirmadores": 2,
+      "diagnostico": "mobilização",
+      "gap_p1": 81.67088607594937,
+      "mensagem_pronta": "O Lula vai universalizar o Pé-de-Meia para todos os alunos do ensino médio público. Aqui, a taxa de analfabetismo é de 27,9% e 23,9% da população tem entre 15 e 29 anos. Isso significa dinheiro no bolso da família e filho estudando."
+    },
+    {
+      "uf": "GO",
+      "municipio": "GUARANI DE GOIÁS",
+      "zona": "47",
+      "secao": "78",
+      "proposta": "ministerio_seguranca",
+      "label": "Ministério da Segurança",
+      "motivo_proposta": "confirmada",
+      "indicadores_confirmadores": 1,
+      "diagnostico": "mobilização",
+      "gap_p1": 79.5,
+      "mensagem_pronta": "O Lula vai criar o Ministério da Segurança Pública e retomar territórios dominados pelo crime. Aqui, a taxa de homicídios é de 49,0 por 100 mil habitantes. Isso é proteção para quem trabalha e prisão para quem rouba."
+    },
+    {
+      "uf": "PR",
+      "municipio": "SÃO JOÃO DO TRIUNFO",
+      "zona": "52",
+      "secao": "23",
+      "proposta": "rede_cancer",
+      "label": "Rede Brasil contra o Câncer",
+      "motivo_proposta": "confirmada",
+      "indicadores_confirmadores": 1,
+      "diagnostico": "mobilização",
+      "gap_p1": 78.28975265017667,
+      "mensagem_pronta": "O Lula vai criar a Rede Brasil contra o Câncer, a maior rede pública do mundo para tratamento da doença. Aqui, a mortalidade por câncer é de 138,4 por 100 mil habitantes. Isso é atendimento perto de casa."
+    },
+    {
+      "uf": "RS",
+      "municipio": "HERVEIRAS",
+      "zona": "40",
+      "secao": "349",
+      "proposta": "farmacia_popular",
+      "label": "Farmácia Popular ampliada",
+      "motivo_proposta": "confirmada",
+      "indicadores_confirmadores": 2,
+      "diagnostico": "mobilização",
+      "gap_p1": 77.53333333333333,
+      "mensagem_pronta": "O Lula vai ampliar o Farmácia Popular e criar a Rede Brasil contra o Câncer. Aqui, 19,6% da população tem 60 anos ou mais e a mortalidade geral é de 9,0 por mil habitantes. Isso é remédio mais barato e atendimento perto de casa."
+    },
+    {
+      "uf": "PR",
+      "municipio": "RESERVA DO IGUAÇU",
+      "zona": "160",
+      "secao": "133",
+      "proposta": "rede_cancer",
+      "label": "Rede Brasil contra o Câncer",
+      "motivo_proposta": "confirmada",
+      "indicadores_confirmadores": 1,
+      "diagnostico": "mobilização",
+      "gap_p1": 77.37391304347827,
+      "mensagem_pronta": "O Lula vai criar a Rede Brasil contra o Câncer, a maior rede pública do mundo para tratamento da doença. Aqui, a mortalidade por câncer é de 167,9 por 100 mil habitantes. Isso é atendimento perto de casa."
+    },
+    {
+      "uf": "AM",
+      "municipio": "HUMAITÁ",
+      "zona": "17",
+      "secao": "67",
+      "proposta": "tempo_integral",
+      "label": "Ensino de tempo integral",
+      "motivo_proposta": "confirmada",
+      "indicadores_confirmadores": 2,
+      "diagnostico": "mobilização",
+      "gap_p1": 77.05483870967743,
+      "mensagem_pronta": "O Lula vai implementar o ensino de tempo integral em todas as escolas públicas. Aqui, a taxa de analfabetismo é de 42,3% e 28,1% da população tem até 14 anos. Isso significa mais aprendizado e mais oportunidades para as crianças."
+    },
+    {
+      "uf": "PA",
+      "municipio": "TUCUMÃ",
+      "zona": "74",
+      "secao": "183",
+      "proposta": "ministerio_seguranca",
+      "label": "Ministério da Segurança",
+      "motivo_proposta": "confirmada",
+      "indicadores_confirmadores": 1,
+      "diagnostico": "mobilização",
+      "gap_p1": 76.64285714285717,
+      "mensagem_pronta": "O Lula vai criar o Ministério da Segurança Pública e retomar territórios dominados pelo crime. Aqui, a taxa de homicídios é de 68,3 por 100 mil habitantes. Isso é proteção para quem trabalha e prisão para quem rouba."
+    },
+    {
+      "uf": "BA",
+      "municipio": "TREMEDAL",
+      "zona": "177",
+      "secao": "64",
+      "proposta": "salario_minimo",
+      "label": "Salário mínimo acima da inflação",
+      "motivo_proposta": "confirmada",
+      "indicadores_confirmadores": 1,
+      "diagnostico": "mobilização",
+      "gap_p1": 76.4666666666667,
+      "mensagem_pronta": "O Lula vai continuar valorizando o salário mínimo acima da inflação. Aqui, a renda média do responsável é de R$ 1.165. Isso é dinheiro no bolso todo mês."
+    },
+    {
+      "uf": "AM",
+      "municipio": "HUMAITÁ",
+      "zona": "17",
+      "secao": "89",
+      "proposta": "tempo_integral",
+      "label": "Ensino de tempo integral",
+      "motivo_proposta": "confirmada",
+      "indicadores_confirmadores": 2,
+      "diagnostico": "mobilização",
+      "gap_p1": 76.42857142857142,
+      "mensagem_pronta": "O Lula vai implementar o ensino de tempo integral em todas as escolas públicas. Aqui, a taxa de analfabetismo é de 42,3% e 28,1% da população tem até 14 anos. Isso significa mais aprendizado e mais oportunidades para as crianças."
+    },
+    {
+      "uf": "RS",
+      "municipio": "BOQUEIRÃO DO LEÃO",
+      "zona": "93",
+      "secao": "173",
+      "proposta": "rede_cancer",
+      "label": "Rede Brasil contra o Câncer",
+      "motivo_proposta": "confirmada",
+      "indicadores_confirmadores": 1,
+      "diagnostico": "mobilização",
+      "gap_p1": 75.99032258064517,
+      "mensagem_pronta": "O Lula vai criar a Rede Brasil contra o Câncer, a maior rede pública do mundo para tratamento da doença. Aqui, a mortalidade por câncer é de 256,1 por 100 mil habitantes. Isso é atendimento perto de casa."
+    },
+    {
+      "uf": "GO",
+      "municipio": "GUARANI DE GOIÁS",
+      "zona": "47",
+      "secao": "71",
+      "proposta": "ministerio_seguranca",
+      "label": "Ministério da Segurança",
+      "motivo_proposta": "confirmada",
+      "indicadores_confirmadores": 1,
+      "diagnostico": "mobilização",
+      "gap_p1": 75.49758454106279,
+      "mensagem_pronta": "O Lula vai criar o Ministério da Segurança Pública e retomar territórios dominados pelo crime. Aqui, a taxa de homicídios é de 49,0 por 100 mil habitantes. Isso é proteção para quem trabalha e prisão para quem rouba."
+    },
+    {
+      "uf": "PR",
+      "municipio": "SÃO JOÃO DO TRIUNFO",
+      "zona": "52",
+      "secao": "37",
+      "proposta": "rede_cancer",
+      "label": "Rede Brasil contra o Câncer",
+      "motivo_proposta": "confirmada",
+      "indicadores_confirmadores": 1,
+      "diagnostico": "mobilização",
+      "gap_p1": 75.13580246913583,
+      "mensagem_pronta": "O Lula vai criar a Rede Brasil contra o Câncer, a maior rede pública do mundo para tratamento da doença. Aqui, a mortalidade por câncer é de 138,4 por 100 mil habitantes. Isso é atendimento perto de casa."
+    }
+  ],
+  "avisos": [],
+  "status": "OK"
+}

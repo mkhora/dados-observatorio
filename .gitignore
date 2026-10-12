@@ -1,0 +1,26 @@
+# Bancos de trabalho e temporários
+*.duckdb
+*.duckdb.wal
+*.wal
+*.sqlite3*
+tmp/
+.tmp/
+*.pending
+*.publish.lock
+
+# Brutos grandes (reobtíveis nas fontes oficiais)
+*.zip
+warehouse/publicas/sim/
+warehouse/geocode-cache.csv
+data/raw/*.csv
+
+# Segredos
+.env
+.env.*
+!*.env.example
+
+# Caches
+__pycache__/
+.ruff_cache/
+.venv/
+node_modules/

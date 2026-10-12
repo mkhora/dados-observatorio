@@ -1,0 +1,40 @@
+{
+  "run_id": "751083ec-1ebf-4606-997e-038dd26718ac",
+  "imports": [
+    "018d257a-1bc3-465d-99f6-c48fd70d7f7c",
+    "6055d89f-6ffd-40bd-92e6-8d8d319e407f",
+    "bd221de2-008f-4a3b-8ed7-84ae64669a3e",
+    "b30e7702-b543-4fe3-8407-b8b2b6d2a113",
+    "7491dcf9-be05-43b8-aeb6-76cf9029c305",
+    "f8546a6f-c539-43ca-8392-772f1eb79a19",
+    "b9c56e51-a006-49c2-9748-69192d73bb06"
+  ],
+  "counts": {
+    "mart_section_results": 6403273,
+    "mart_section_historical_comparison": 5942060,
+    "mart_section_turnout": 1451898,
+    "mart_zone_results": 132937,
+    "mart_municipality_results": 119151,
+    "mart_state_results": 736,
+    "mart_national_results": 30
+  },
+  "validation": {
+    "status": "PASS",
+    "errors": [],
+    "warnings": [
+      {
+        "check": "Indicadores incompletos em fact_section_turnout",
+        "rows": 139
+      },
+      {
+        "check": "Indicadores incompletos em mart_section_results",
+        "rows": 8
+      },
+      {
+        "check": "Cargo não informado na origem",
+        "rows": 2
+      }
+    ]
+  },
+  "path": "C:\\Users\\MatheusTeixeiraDaHor\\Desktop\\prod\\obs-popular-eleitoral\\data\\marts\\751083ec-1ebf-4606-997e-038dd26718ac"
+}

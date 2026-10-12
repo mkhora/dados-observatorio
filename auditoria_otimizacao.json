@@ -1,0 +1,165 @@
+{
+  "gerado_em": "2026-10-11T12:26:46.130348+00:00",
+  "status": "TRANSICAO_IMPLEMENTADA_MIGRACAO_COMPLETA_PENDENTE",
+  "versao": "20261011T121002765277Z",
+  "perfis_upload": {
+    "essencial": {
+      "datasets": [
+        "priority_geo",
+        "priority_lookup",
+        "priority_top"
+      ],
+      "parquets": 38,
+      "parquets_mb": 78.210347,
+      "fallback_api_para_datasets_omitidos": true
+    },
+    "inicial": {
+      "datasets": [
+        "abstencao_municipio",
+        "abstencao_uf",
+        "priority_geo",
+        "priority_lookup",
+        "priority_municipio",
+        "priority_rank",
+        "priority_top",
+        "priority_uf"
+      ],
+      "parquets": 49,
+      "parquets_mb": 103.726779,
+      "fallback_api_para_datasets_omitidos": true
+    }
+  },
+  "parquets_gerados": {
+    "priority_top": {
+      "linhas": 200,
+      "tamanho_mb": 0.016093,
+      "particoes": 1,
+      "max_bytes": 16093
+    },
+    "priority_geo": {
+      "linhas": 494050,
+      "tamanho_mb": 31.872997,
+      "particoes": 8,
+      "max_bytes": 4376168
+    },
+    "priority_geo_taxa": {
+      "linhas": 494050,
+      "tamanho_mb": 33.027527,
+      "particoes": 8,
+      "max_bytes": 4498517
+    },
+    "priority_lookup": {
+      "linhas": 510060,
+      "tamanho_mb": 46.321257,
+      "particoes": 29,
+      "max_bytes": 4986103
+    },
+    "priority_rank": {
+      "linhas": 510060,
+      "tamanho_mb": 25.104742,
+      "particoes": 7,
+      "max_bytes": 4289400
+    },
+    "priority_rank_taxa_conversao": {
+      "linhas": 510060,
+      "tamanho_mb": 26.270068,
+      "particoes": 7,
+      "max_bytes": 4515064
+    },
+    "priority_rank_score_prioridade": {
+      "linhas": 510060,
+      "tamanho_mb": 25.997923,
+      "particoes": 7,
+      "max_bytes": 4289400
+    },
+    "priority_rank_abstention_pct_2026": {
+      "linhas": 510060,
+      "tamanho_mb": 26.322443,
+      "particoes": 8,
+      "max_bytes": 3397351
+    },
+    "priority_uf": {
+      "linhas": 28,
+      "tamanho_mb": 0.002578,
+      "particoes": 1,
+      "max_bytes": 2578
+    },
+    "priority_municipio": {
+      "linhas": 5758,
+      "tamanho_mb": 0.19863,
+      "particoes": 1,
+      "max_bytes": 198630
+    },
+    "abstencao_uf": {
+      "linhas": 28,
+      "tamanho_mb": 0.002203,
+      "particoes": 1,
+      "max_bytes": 2203
+    },
+    "abstencao_municipio": {
+      "linhas": 5758,
+      "tamanho_mb": 0.208279,
+      "particoes": 1,
+      "max_bytes": 208279
+    }
+  },
+  "total_mb_para_upload": 215.365558,
+  "api_server_side": {
+    "modo_padrao": "transition",
+    "modo_minimo_disponivel": true,
+    "rotas_minimas": [
+      "/health",
+      "/api/v1/health",
+      "/api/v1/manifest",
+      "/api/v1/adotar-secao",
+      "/api/v1/reportar-campo"
+    ],
+    "endpoints_removidos_no_modo_padrao": 0,
+    "hospedagem": "NAO_IMPLANTADA",
+    "writes_storage": "SQLite_volume_persistente",
+    "worker_cloudflare_implementado": false
+  },
+  "frontend": {
+    "framework_real": "React/Vite",
+    "duckdb_wasm_versao": "1.28.0",
+    "consumidores_priority_integrados": [
+      "Home",
+      "PriorityActions",
+      "Maps",
+      "SectionsMap",
+      "Section"
+    ],
+    "fallback_api_ativa": true,
+    "r2_base_configurado": false,
+    "leituras_nao_migradas": [
+      "results",
+      "turnout",
+      "geographies",
+      "metadata",
+      "sections histórico",
+      "comparisons",
+      "como-agir"
+    ]
+  },
+  "validacao": {
+    "arquivos_menores_5mb": true,
+    "top_200_e_lookup_510060": true,
+    "ordenacoes_sem_abortar_teste_local": true,
+    "health_responde_sem_db_local_modo_minimo": true,
+    "escritas_autenticadas_persistidas": true,
+    "fallback_testado_node": true,
+    "wasm_browser_range_cors_end_to_end": "NAO_EXECUTADO",
+    "garantia_oom_sistema_operacional": false
+  },
+  "pendencias_manuais": [
+    "Upload manual dos Parquets e manifest para R2",
+    "CORS e domínio público/customizado no bucket",
+    "Configuração de config.js com base versionada",
+    "Homologação WASM/browser/Range/CORS após upload"
+  ],
+  "pendencias_implementacao": [
+    "Migrar demais leituras para habilitar modo mínimo",
+    "Autenticação individual e integração das escritas na UI",
+    "Deploy adequado e armazenamento persistente"
+  ]
+}
