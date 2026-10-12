@@ -32,9 +32,9 @@ Código e metodologia do pipeline: [mkhora/observatorio-popular](https://github.
 
 ### A. Snapshot público de resultados — `snapshots/e6-2022-2026-v1/`
 
-Contrato de 7 marts + manifesto + schema. As definições estão no
-[contrato de publicação do projeto de aplicação](https://github.com/mkhora/observatorio-popular/blob/master/docs/publicacao.md)
-e em `schema/public-v1.json`. Esta pasta contém o snapshot incluído nesta base;
+Contrato de 7 marts + manifesto + schema. As definições de colunas estão em
+`schema/public-v1.json`; proveniência, verificações e limites estão no manifesto.
+Esta pasta contém o snapshot incluído nesta base;
 seu envio ao GitHub não comprova deploy da API ou do frontend.
 
 | Arquivo | Granularidade / conteúdo | Tamanho | Hospedagem |
