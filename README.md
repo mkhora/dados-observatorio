@@ -8,6 +8,9 @@ pessoais de eleitores nem exports intermediários.
 Este README descreve o conteúdo, a proveniência, os limites de leitura e o catálogo
 de arquivos da base.
 
+Repositório: [mkhora/dados-observatorio](https://github.com/mkhora/dados-observatorio).
+Código e metodologia do pipeline: [mkhora/observatorio-popular](https://github.com/mkhora/observatorio-popular).
+
 ## Aviso de leitura (obrigatório)
 
 - **`dataset = SOURCE`** identifica a base efetivamente importada. Ela **pode ser um
@@ -18,9 +21,6 @@ de arquivos da base.
   alteração, mas **não autenticam** o produtor nem a procedência TSE.
 - **`NULL` significa indisponível, nunca zero.** Não substitua ausência por zero em
   somas ou médias.
-- **`official_reconciliation = NOT_RUN`.** Estes dados não passaram por reconciliação
-  oficial automática contra as fontes do TSE. Não os apresente como resultado
-  certificado.
 - **LGPD.** Somente agregados por seção eleitoral; nenhum dado individual de eleitor.
   Nomes de candidatos são informação eleitoral pública.
 - **Camadas derivadas (E7–E10) são descritivas.** Prioridade de mobilização, scores
@@ -28,59 +28,22 @@ de arquivos da base.
   individual, **não** estimam conversão de voto e **não** certificam identidade de
   eleitor.
 
-## Estrutura do repositório
-
-```text
-.
-├── README.md                       # este arquivo
-├── LICENSE                         # MIT (software) — ver "Licença e atribuição"
-├── .gitignore
-├── data/
-│   ├── priority.parquet            # insumo da API (cópia de snapshots/secoes_recuperaveis.parquet)
-│   └── marts/current.json          # recibo do último build analítico
-├── snapshots/
-│   ├── e6-2022-2026-v1/            # snapshot público de resultados (2022 + 2026)
-│   ├── secoes_*.parquet            # camadas derivadas por seção (E7–E9)
-│   ├── zonas_virada_prioritarias.parquet
-│   ├── como_agir.parquet           # bloco "Como agir" (E10)
-│   └── locais_votacao_geo.parquet  # coordenadas por seção (geocode)
-├── warehouse/
-│   └── publicas/                   # bases públicas consolidadas (IBGE, DATASUS)
-├── schema/public-v1.json           # contrato canônico das colunas (1.0.0)
-├── guia_porta_a_porta_por_secao.csv
-├── auditoria*.json / auditoria_final.md
-├── relatorio_*.md
-└── docs/                           # metodologia e contratos
-```
-
-## Sobre a versão `e5-2022-v1`
-
-Este repositório contém **apenas o snapshot `e6-2022-2026-v1`**. O snapshot anterior
-`e5-2022-v1` (somente 2022) **não** foi incluído, porque:
-
-- `e6-2022-2026-v1` é **superconjunto**: contém 2022 **e** 2026, incluindo todos os
-  marts que o E5 publicava, com o mesmo contrato (`schema 1.0.0`);
-- nada neste repositório consome o E5 — a leitura é sempre pela versão ativa (E6).
-
-O E5 tem valor apenas como **versão histórica publicada** (rollback/proveniência).
-Para adicioná-lo, copie a pasta `snapshots/e5-2022-v1/` (manifesto, `manifest.sha256`,
-`schema.json` e os sete Parquets) preservando o diretório intacto; **não** misture
-arquivos de versões diferentes.
-
 ## Catálogo de arquivos
 
 ### A. Snapshot público de resultados — `snapshots/e6-2022-2026-v1/`
 
-Contrato de 7 marts + manifesto + schema (ver `docs/publicacao.md`). É a versão
-ativa consumida pela API e pelo frontend.
+Contrato de 7 marts + manifesto + schema. As definições estão no
+[contrato de publicação do projeto de aplicação](https://github.com/mkhora/observatorio-popular/blob/master/docs/publicacao.md)
+e em `schema/public-v1.json`. Esta pasta contém o snapshot incluído nesta base;
+seu envio ao GitHub não comprova deploy da API ou do frontend.
 
 | Arquivo | Granularidade / conteúdo | Tamanho | Hospedagem |
 | --- | --- | ---: | --- |
 | `manifest.json` | fontes, hashes, datas, cobertura, verificações, limitações | ~41 KB | repo |
 | `manifest.sha256` | hash do manifesto | 81 B | repo |
 | `schema.json` | contrato 1.0.0 (nomes, tipos DuckDB, nulabilidade) | ~25 KB | repo |
-| `mart_section_results.parquet` | candidato por seção/eleição/turno/cargo | ~174 MiB | **LFS/Release** |
-| `mart_section_historical_comparison.parquet` | candidato por par 2022/2026 | ~156 MiB | **LFS/Release** |
+| `mart_section_results.parquet` | candidato por seção/eleição/turno/cargo | ~174 MiB | **Git LFS** |
+| `mart_section_historical_comparison.parquet` | candidato por par 2022/2026 | ~156 MiB | **Git LFS** |
 | `mart_section_turnout.parquet` | participação por seção/eleição/turno/cargo | ~37 MiB | repo |
 | `mart_zone_results.parquet` | candidato por zona | ~6,6 MiB | repo |
 | `mart_municipality_results.parquet` | candidato por município | ~5,6 MiB | repo |
@@ -106,7 +69,6 @@ Camadas **derivadas e descritivas** geradas pelo pipeline (E7–E10). Chave can�
 | `como_agir.parquet` | proposta, justificativa, ação e mensagem por seção (E10) | ~16,0 MiB |
 | `locais_votacao_geo.parquet` | coordenadas por seção (geocode) | ~10,9 MiB |
 | `data/priority.parquet` | insumo da API (cópia de `secoes_recuperaveis.parquet`) | ~34,3 MiB |
-| `guia_porta_a_porta_por_secao.csv` | mensagem, ação e material por seção prioritária (E8) | ~11,0 MiB |
 
 ### C. Bases públicas consolidadas — `warehouse/publicas/`
 
@@ -137,51 +99,63 @@ Os arquivos brutos baixados dessas fontes (`warehouse/publicas/censo2022/*.zip`,
 | `schema/public-v1.json` | contrato canônico 1.0.0 (fonte do `schema.json`) |
 | `data/marts/current.json` | recibo do último build analítico (run, contagens, avisos) |
 
-### E. Relatórios e auditorias
+`data/marts/current.json` descreve o build no projeto de aplicação. Para contagens
+e integridade dos arquivos distribuídos, use o manifesto do snapshot; o recibo
+pode incluir registros que não fazem parte do recorte exportado.
 
-| Arquivo | Conteúdo |
-| --- | --- |
-| `auditoria.json` | cobertura, integridade e reconciliação do snapshot 2022 (E7) |
-| `auditoria_recuperaveis.json` | medições da camada de votos recuperáveis (E9) |
-| `auditoria_como_agir.json` | régua, limiares e distribuição do bloco "Como agir" (E10) |
-| `auditoria_otimizacao.json` | medições de otimização do banco |
-| `auditoria_final.md` | checklist final e alertas (E7) |
-| `relatorio_cruzamento.md` | fontes, cobertura, distribuição por UF e top 20 (E8) |
-| `relatorio_como_agir.md` | contrato, régua e limitações do bloco "Como agir" (E10) |
-| `relatorio_refatoracao.md` | comparativo da metodologia antiga × nova (E9) |
-| `relatorio_otimizacao.md` | notas de otimização |
+### E. Relatórios
 
-### F. Documentação metodológica — `docs/`
-
-Sem estes documentos os números ficam sem definição de fórmula, denominador e
-cobertura.
-
-| Arquivo | Conteúdo |
-| --- | --- |
-| `docs/analitica-e3.md` | fórmulas, denominadores, chaves históricas e limites estatísticos |
-| `docs/publicacao.md` | contrato dos marts, manifesto, schema e disponibilidade |
-| `docs/calculo_antigo.md` | metodologia de prioridade anterior (E7) para comparação |
-| `docs/entregas/E5.md` | snapshot 2022 anterior (histórico) |
-| `docs/entregas/E6.md` | snapshot 2022 + 2026 e interface pública |
-| `docs/entregas/E7.md` | prioridade de mobilização por seção |
-| `docs/entregas/E8.md` | cruzamento socioeleitoral (IBGE/DATASUS) |
+Os arquivos `relatorio_cruzamento.md`, `relatorio_como_agir.md`,
+`relatorio_refatoracao.md` e `relatorio_otimizacao.md` registram o contexto das
+camadas derivadas. Referências desses relatórios a `docs/`, auditorias, CSVs
+brutos ou scripts pertencem ao projeto de aplicação; esses arquivos não fazem
+parte deste repositório de dados.
 
 ## Tamanho dos arquivos e limites do GitHub
 
-O GitHub impõe **100 MiB por arquivo** (bloqueio rígido), alerta a partir de **50 MiB**
-e recomenda repositórios abaixo de **1 GiB**. O conjunto atual soma **~554 MiB** em
-47 arquivos. Por isso:
+O GitHub [bloqueia arquivos comuns maiores que 100 MiB](https://docs.github.com/en/repositories/working-with-files/managing-large-files/about-large-files-on-github).
+Os dados desta base ocupam aproximadamente **543 MiB** depois de baixar os objetos LFS.
 
-- **Versionar direto no repo** (cabe): todo o grupo B, o grupo C, os grupos D, E e F,
-  os Parquets pequenos do snapshot e a documentação. Total aproximado: ~140 MiB.
-- **Git LFS** (`git lfs track "*.parquet"`): `mart_section_results.parquet` (~174 MiB)
-  e `mart_section_historical_comparison.parquet` (~156 MiB) do snapshot E6.
-- **GitHub Releases / storage externo** (Zenodo, S3, R2): os CSVs de origem do TSE
-  (`data/raw/`) e os brutos de `warehouse/publicas/`. São grandes e **reobtíveis no
-  canal oficial** (TSE; IBGE; DATASUS): referencie-os por URL + `sha256` do manifesto
-  em vez de carregá-los.
-- **Nunca versionar**: `*.duckdb`, `*.wal`, `*.sqlite3`, `*.zip`, staging, temporários,
-  caches de geocode e segredos.
+- **Git LFS:** somente os dois Parquets grandes do snapshot E6, totalizando
+  **345.949.284 bytes (~330 MiB)**. Os caminhos exatos estão em `.gitattributes`.
+- **Git comum:** os demais Parquets, metadados, contratos e relatórios.
+- **Fora desta base:** CSVs de origem (`data/raw/`), arquivos ZIP, bancos de trabalho,
+  staging, temporários, caches de geocode e segredos. Consulte as fontes e os
+  hashes registrados no manifesto para localizar os insumos originais.
+
+### Baixar a base com Git LFS
+
+Instale [Git LFS](https://git-lfs.com/) antes de clonar:
+
+```sh
+git lfs install
+git clone https://github.com/mkhora/dados-observatorio.git
+cd dados-observatorio
+git lfs pull
+git lfs fsck
+git lfs ls-files
+```
+
+`git lfs ls-files` deve listar os dois marts grandes. Sem os objetos LFS, esses
+arquivos podem conter apenas ponteiros de texto e não podem ser lidos como Parquet.
+Use o clone com LFS para obter a base completa; a inclusão dos objetos no ZIP
+gerado pelo GitHub depende da configuração de arquivos de download do repositório.
+
+### Atualizar os arquivos grandes
+
+Para uma nova versão, crie outro diretório de snapshot e registre os caminhos dos
+arquivos grandes antes do commit. Para os arquivos atuais, a configuração é:
+
+```sh
+git lfs track "snapshots/e6-2022-2026-v1/mart_section_results.parquet"
+git lfs track "snapshots/e6-2022-2026-v1/mart_section_historical_comparison.parquet"
+git add .gitattributes
+```
+
+Versione `.gitattributes` junto com os dados. `git push` envia os objetos LFS pelo
+hook instalado por `git lfs install`. Apenas adicionar regras LFS não converte
+blobs grandes já presentes em commits anteriores; este histórico inicial foi
+migrado antes do primeiro envio.
 
 ### `.gitignore`
 
@@ -260,6 +234,30 @@ comparação, nunca como zero.
 - Confira `sha256` dos Parquets contra o manifesto antes de usar. Hash detecta
   alteração, mas não autentica a origem.
 
+Os JSONs e o arquivo `manifest.sha256` são preservados byte a byte por
+`.gitattributes`, sem conversão automática entre LF e CRLF. Isso mantém os hashes
+do snapshot iguais em Windows, Linux e macOS.
+
+Exemplo de conferência em PowerShell, depois de `git lfs pull`:
+
+```powershell
+$snapshot = 'snapshots/e6-2022-2026-v1'
+$expectedManifest = ((Get-Content "$snapshot/manifest.sha256" -Raw).Trim() -split '\s+')[0]
+if ((Get-FileHash "$snapshot/manifest.json" -Algorithm SHA256).Hash.ToLowerInvariant() -ne $expectedManifest) {
+    throw 'Hash do manifesto divergente'
+}
+$manifest = Get-Content "$snapshot/manifest.json" -Raw | ConvertFrom-Json
+foreach ($file in $manifest.files.PSObject.Properties) {
+    $path = Join-Path $snapshot $file.Name
+    $hash = (Get-FileHash $path -Algorithm SHA256).Hash.ToLowerInvariant()
+    if ($hash -ne $file.Value.sha256) { throw "Hash divergente: $path" }
+    if ($null -ne $file.Value.bytes -and (Get-Item $path).Length -ne $file.Value.bytes) {
+        throw "Tamanho divergente: $path"
+    }
+}
+'Integridade do snapshot conferida'
+```
+
 ## Licença e atribuição
 
 - **Software** deste projeto: MIT (`LICENSE`), sujeito à confirmação do responsável.
@@ -276,7 +274,7 @@ comparação, nunca como zero.
 ```text
 Observatório Popular de Dados Eleitorais. Base pública de dados eleitorais
 (snapshots e camadas derivadas). Versão: fe3f416614dfa18e1a3e5dda9292dbbca66d5aa1377020934cb6bf332044140d.
-Disponível em: <URL do repositório>. Acesso em: <data>.
+Disponível em: https://github.com/mkhora/dados-observatorio. Acesso em: <data>.
 ```
 
 > **Nota:** os valores acima descrevem a base importada e as camadas derivadas.

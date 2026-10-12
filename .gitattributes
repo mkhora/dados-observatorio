@@ -1,2 +1,6 @@
-snapshots/e6-2022-2026-v1/mart_section_results.parquet filter=lfs diff=lfs merge=lfs -text
 snapshots/e6-2022-2026-v1/mart_section_historical_comparison.parquet filter=lfs diff=lfs merge=lfs -text
+
+# Metadados com hashes: preservar os bytes originais em qualquer sistema.
+*.json -text whitespace=cr-at-eol
+*.sha256 -text whitespace=cr-at-eol
+snapshots/e6-2022-2026-v1/mart_section_results.parquet filter=lfs diff=lfs merge=lfs -text
